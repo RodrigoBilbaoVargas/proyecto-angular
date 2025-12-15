@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-brand">
+      <a routerLink="/">📚 BiblioTech</a>
+    </div>
+    
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+      <a routerLink="/libros" routerLinkActive="active">Libros</a>
+      
+      @if (authService.isLoggedIn()) {
+        <button class="btn-logout" (click)="onLogout()">Cerrar Sesión</button>
+      } @else {
+        <a routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
+        <a routerLink="/register" routerLinkActive="active" class="btn-register">Registrarse</a>
+      }
+      
+      <button class="btn-theme" (click)="toggleTheme()" [title]="themeService.darkMode() ? 'Modo claro' : 'Modo oscuro'">
+        @if (themeService.darkMode()) {
+          ☀️
+        } @else {
+          🌙
+        }
+      </button>
+    </div>
+  </div>
+</nav>

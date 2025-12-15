@@ -1,0 +1,21 @@
+<div class="libro-card">
+  <div class="libro-image">
+    <img [src]="libro.imagenUrl" [alt]="libro.titulo"/>
+
+  </div>
+  
+  <div class="libro-content">
+    <h3 class="libro-titulo">{{ libro.titulo }}</h3>
+    <p class="libro-autor">👤 {{ libro.autor }}</p>
+    <p class="libro-genero">📚 {{ libro.genero }}</p>
+    <p class="libro-anio">📅 {{ libro.anio }}</p>
+    <p class="libro-descripcion">{{ libro.descripcion }}</p>
+    
+    @if (authService.isLoggedIn()) {
+      <div class="libro-actions">
+        <button class="btn btn-edit" (click)="onEdit()">✏️ Editar</button>
+        <button class="btn btn-delete" (click)="onDelete()">🗑️ Eliminar</button>
+      </div>
+    }
+  </div>
+</div>

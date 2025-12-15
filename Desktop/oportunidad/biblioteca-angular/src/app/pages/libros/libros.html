@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="libros-container">
+  <div class="container">
+    <div class="header">
+      <h1>📚 Biblioteca</h1>
+      @if (authService.isLoggedIn()) {
+        <button class="btn btn-add" (click)="onAddNew()">
+          ➕ Agregar Libro
+        </button>
+      }
+    </div>
+
+    @if (showForm) {
+      <app-libro-form 
+        [libro]="editingLibro" 
+        (submit)="onSubmit($event)" 
+        (cancel)="onCancel()"
+      ></app-libro-form>
+    }
+
+    @if (loading) {
+      <div class="loading">
+        <p>Cargando libros...</p>
+      </div>
+    }
+
+    @if (!loading && libros.length === 0) {
+      <div class="empty-state">
+        <p class="empty-icon">📖</p>
+        <h2>No hay libros aún</h2>
+        <p>Comienza agregando tu primer libro a la biblioteca</p>
+        @if (authService.isLoggedIn()) {
+          <button class="btn btn-primary" (click)="onAddNew()">
+            Agregar Primer Libro
+          </button>
+        } @else {
+          <p class="empty-login">
+            <a href="/login">Inicia sesión</a> para agregar libros
+          </p>
+        }
+      </div>
+    }
+
+    @if (!loading && libros.length > 0) {
+      <div class="libros-grid">
+        @for (libro of libros; track libro.id) {
+          <app-libro-card 
+            [libro]="libro" 
+            (edit)="onEdit($event)" 
+            (delete)="onDelete($event)"
+          ></app-libro-card>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+<app-footer></app-footer>

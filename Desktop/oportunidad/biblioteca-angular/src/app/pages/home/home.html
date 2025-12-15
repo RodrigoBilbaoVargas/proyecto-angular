@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">📚 Bienvenido a BiblioTech</h1>
+      <p class="hero-subtitle">Tu biblioteca digital moderna y fácil de usar</p>
+      <div class="hero-actions">
+        <a routerLink="/libros" class="btn btn-primary">Ver Libros</a>
+        <a routerLink="/register" class="btn btn-secondary">Comenzar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Características Principales</h2>
+      <div class="features-grid">
+        @for (feature of features; track feature.title) {
+          <div class="feature-card">
+            <div class="feature-icon">{{ feature.icon }}</div>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>¿Listo para empezar?</h2>
+      <p>Crea tu cuenta y comienza a gestionar tu biblioteca digital hoy mismo</p>
+      <a routerLink="/register" class="btn btn-large">Registrarse Gratis</a>
+    </div>
+  </section>
+</div>
+
+<app-footer></app-footer>

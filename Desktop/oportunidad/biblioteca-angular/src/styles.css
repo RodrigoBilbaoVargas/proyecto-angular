@@ -1,0 +1,116 @@
+/* Reset y Variables */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colores modo claro */
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #e0e7ff;
+  --secondary: #e5e7eb;
+  --danger: #ef4444;
+  --success: #22c55e;
+  
+  --bg: #f9fafb;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --footer-bg: #f3f4f6;
+  --footer-text: #374151;
+  --input-bg: #ffffff;
+  --image-bg: #e5e7eb;
+  
+  --text: #1f2937;
+  --text-secondary: #6b7280;
+  --border: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.1);
+  
+  --transition: all 0.3s ease;
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+  --bg: #111827;
+  --card-bg: #1f2937;
+  --nav-bg: #1f2937;
+  --footer-bg: #1f2937;
+  --footer-text: #d1d5db;
+  --input-bg: #374151;
+  --image-bg: #374151;
+  
+  --text: #f9fafb;
+  --text-secondary: #d1d5db;
+  --border: #374151;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Utilidades globales */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Animaciones globales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
